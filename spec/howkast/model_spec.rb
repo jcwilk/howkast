@@ -17,9 +17,9 @@ describe "Howkast::Model" do
     model    = Howkast::Model.synthesize(@name, @data)
     instance = model.new(self, @data)
     instance.should be_an_instance_of Howkast::Model::Foo
-    instance.should respond_to :x
-    instance.should respond_to :y
-    instance.should respond_to :z
     instance.should respond_to :defined_attributes
+    @data.keys.each do |attr|
+      instance.should respond_to attr
+    end
   end
 end
