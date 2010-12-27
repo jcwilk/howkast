@@ -5,7 +5,6 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 describe "Howkast::API" do
   API_KEY1 = '6c6d1613339399efd0bc74fe12b14dd370b3ac76'
   API_KEY2 = 'bec946eaa53dc4e0527b28917f318fcd70b3ac76'
-  API_KEY3 = 'b329696199f585670b3ac7627ad3741917fa24a4'
 
   it "should honor configuration" do
     Howkast::configure :api_key => API_KEY1
@@ -36,9 +35,9 @@ describe "Howkast::API" do
   end
   
   it "should be able to query shit" do
-    Howkast::configure :api_key => API_KEY3
+    config = YAML.load File.read('.howkast')
+    Howkast::configure config
     howcast = Howkast::API.new
-    howcast.configuration.api_key.should eql API_KEY3
     begin
       puts
       puts howcast.video :id => 6570
