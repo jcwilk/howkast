@@ -1,11 +1,10 @@
 # encoding: utf-8
-
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe "Howkast::API" do
   API_KEY1 = '6c6d1613339399efd0bc74fe12b14dd370b3ac76'
   API_KEY2 = 'bec946eaa53dc4e0527b28917f318fcd70b3ac76'
-
+  
   it "should honor configuration" do
     Howkast::configure :api_key => API_KEY1
     howcast = Howkast::API.new

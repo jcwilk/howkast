@@ -26,7 +26,7 @@ module Howkast::Processor
       # model. It assumes that data[key] represents a list of like data.
       def parse_list key, data, model = nil, &block
         Array((data || { })[key]).map do |data|
-          name  = (model || key.modulize)
+          name  = (model || key)
           klass = Howkast::Model.synthesize(name, data)
           klass.new self, data, &block
         end

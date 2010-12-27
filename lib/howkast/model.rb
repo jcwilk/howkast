@@ -1,12 +1,13 @@
 class Howkast::Model
   def self.synthesize name, data
-    attrdef = Proc.new{ data.keys.each{ |field| attr_reader field } }
-    if const_defined? name
-      klass = const_get name
+    classname = name.modulize
+    attrdef   = Proc.new{ data.keys.each{ |field| attr_reader field } }
+    if const_defined? classname
+      klass = const_get classname
       klass.class_eval &attrdef
       klass
     else
-      const_set name, Class.new(self, &attrdef)
+      const_set classname, Class.new(self, &attrdef)
     end
   end
 
@@ -23,7 +24,7 @@ class Howkast::Model
     end
   end
   
-  def attributes
-    instance_variables.map{ |name| "#{name}"[1..-1] }
+  def defined_attributes
+    instance_variables.map{ |name| "#{name}"[1 .. -1] }
   end
 end
