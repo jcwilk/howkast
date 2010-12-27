@@ -24,7 +24,7 @@ class Howkast::Model
     end
   end
   
-  def defined_attributes
+  def instance_attributes
     instance_variables.map{ |name| "#{name}"[1 .. -1] }
   end
 end
