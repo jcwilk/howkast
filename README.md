@@ -69,7 +69,44 @@ Quickstart
     playlist.videos.each do |video|
       puts "- #{video.id}\t#{video.title}"
     end
+
+Services
+--------
+To get identify what services are supported, you can invoke the `services`
+class method from the `Howkast::API` class:
+
+    Howkast::API.services.inspect
+  
+At the time of this writing, this gem implements all of the services listed in 
+the [Howcast API Documentation](http://groups.google.com/group/howcast-developers/web/api-documentation)
+
+The current implementation is that each service expects a `Hash` that names 
+the parameters required to fulfill the request. The acceptable parameters
+(with a minor adjustments to make the parameter names consistent) closely
+match the documented service signatures; some examples:
+
+    # get video
+    GET http://www.howcast.com/videos/<video_id>.<format>?api_key=<api_key>
     
+    # service method call
+    howcast.video :id => 6570
+    
+    # list videos
+    GET http://www.howcast.com/videos/<sort>/<filter>/<category>.<format>?api_key=<api_key>
+    
+    # service method call
+    howcast.videos :sort => :top_rated, :filter => :howcast_studios, :page => 5
+
+    # search videos
+    GET http://www.howcast.com/search.<format>?q=<query>&view=video&api_key=<api_key> 
+  
+    # service method call
+    howcast.search :query => 'jujitsu'
+    
+Read the [Howcast API Documentation](http://groups.google.com/group/howcast-developers/web/api-documentation)
+for details.
+
+
 Download
 --------
 You can download this project in either
