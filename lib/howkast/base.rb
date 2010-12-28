@@ -37,15 +37,24 @@ module Howkast
       end
       
       def service name, spec = { }
+        arguments_guard = ->(argcount) do
+          maxarity = spec[:maxarity] || 1
+          raise ArgumentError, "wrong number of arguments (#{argcount} for #{maxarity})" \
+            unless maxarity == argcount
+        end
+        
         has_named_parameters name, spec[:options] || { }
         (@services ||= []) << name.to_sym
         
         define_method name do |*args, &block|
+          arguments_guard[args.count]
+          
           self.class.default_params api_key: configuration.api_key
           procname  = (spec[:processor] || name).to_s.modulize
           processor = Processor.const_defined?(procname) ?
                         Processor.const_get(procname) :
                         Processor::Base
+                        
           path  = "/#{processor.path || name}"
           query = args.last
           args  = args[0..-2] if query.instance_of? Hash

@@ -1,6 +1,11 @@
 require 'rubygems'
-require 'howkast'
 require 'yaml'
+begin
+  require 'howkast'
+rescue LoadError
+  $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
+  require 'howkast'
+end
 
 # configure
 Howkast::configure YAML.load File.read('.howkast')

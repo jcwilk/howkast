@@ -16,14 +16,14 @@ module Howkast
 
     service :playlist,
       processor: :playlists,
-      options: { :required => :id }
+        options: { :required => :id }
       
     service :category,
       processor: :categories,
         options: { :required => :id }
-        
-    service :categories
 
+    service :categories
+       
     recognizes :key, :api_key
     def initialize opts = { }
       key = (opts[:api_key] || opts[:key])
