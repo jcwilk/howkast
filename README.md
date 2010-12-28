@@ -6,17 +6,17 @@ Quickstart
     # install
     gem install howkast
     
-    # usage
+    # usage (see also sample/quickstart.rb)
     require 'howkast'
 
     # configure
-    Howkast::configure :api_key => 'YOUR-HOWCAST-API-KEU'
+    Howkast::configure :api_key => 'YOUR-HOWCAST-API-KEY'
     
     # create instance
     howcast = Howkast::API.new
     
     # alternative instantiation
-    howcast = Howkast::API.new :api_key => 'YOUR-HOWCAST-API-KEY'
+    # howcast = Howkast::API.new :api_key => 'YOUR-HOWCAST-API-KEY'
     
     # search for jujitsu how-to videos
     search = howcast.search :query => 'jujitsu'
