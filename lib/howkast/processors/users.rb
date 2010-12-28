@@ -26,6 +26,7 @@ module Howkast::Processor
         args << options.delete(:id)
         args << :profile
         args << Array(options.delete(:resource))
+        args.compact!
       end
 
       def parse_element data

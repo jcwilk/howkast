@@ -14,11 +14,11 @@ Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
   gem.name = "howkast"
   gem.homepage = "http://github.com/jurisgalang/howkast"
-  gem.license = "MIT"
   gem.summary = %Q{Ruby bindings for the [Howcast](http://howcast.com) API}
   gem.description = %Q{This gem implements Ruby bindings for the [Howcast](http://howcast.com) API}
   gem.email = "jurisgalang@gmail.com"
   gem.authors = ["Juris Galang"]
+  gem.license = ["MIT", "GPL"]
   # Include your dependencies below. Runtime dependencies are required when using your gem,
   # and development dependencies are only needed for development (ie running rake tasks, tests, etc)
   #  gem.add_runtime_dependency 'jabber4r', '> 0.1'

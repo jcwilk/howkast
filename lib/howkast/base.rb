@@ -5,12 +5,17 @@ module Howkast
   end
   
   module Base
+    HOWCAST_BASE_URI = 'www.howcast.com'
     def self.included base
       base.send     :include, HTTParty
       base.send     :include, HTTParty::Icebox
-      base.cache    :store => 'file', :timeout => 600, :location => '/tmp/httparty'
+      
+      base.base_uri HOWCAST_BASE_URI
       base.format   :xml
-      base.base_uri 'www.howcast.com'
+      base.cache    :store    => 'file', 
+                    :timeout  => 600, 
+                    :location => '/tmp/httparty'
+                    
       base.extend ClassMethods
     end
     

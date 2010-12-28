@@ -8,7 +8,7 @@ module Howkast
         options: { :required => [ :sort, :filter ],
                    :optional => [ :category, :page ] }
     service :search, 
-        options: { :required => :query, :optional => { view: :video } }
+        options: { :required => :query, :optional => { :view => :video } }
 
     service :user,
       processor: :users,

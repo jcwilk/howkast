@@ -1,6 +1,7 @@
 module Howkast
   module Error
-    RequestError = Class.new(StandardError)
+    class RequestError < StandardError; end
+    #RequestError = Class.new(StandardError)
   
     def self.RequestError(code, data)
       msg   = data['response']['err']['msg'] unless data.nil?
