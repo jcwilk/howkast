@@ -1,7 +1,7 @@
 This gem implements Ruby bindings for the [Howcast](http://howcast.com) API.
 
-Quickstart
-----------
+Quickstart Guide
+----------------
 
     # install
     gem install howkast
