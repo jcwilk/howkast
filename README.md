@@ -8,15 +8,13 @@ This gem implements Ruby bindings for the [Howcast](http://howcast.com) API.
 - million downloads across iPhone, iPad, Android, and BlackBerry phones, Howcast 
 - is the #1 mobile app for instructional content -- wherever you are.
 
-
-
-Installation
-------------
+Install
+-------
 
     gem install howkast
     
-Quickstart Guide
-----------------
+Quickstart
+----------
 
     require 'rubygems'
     require 'yaml'
