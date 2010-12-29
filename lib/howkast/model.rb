@@ -20,7 +20,7 @@ class Howkast::Model
       else
         value
       end
-      instance_variable_set :"@#{field}", self.class._parse(value)
+      instance_variable_set :"@#{field}", self.class.parse(value)
     end
   end
   
@@ -28,7 +28,9 @@ class Howkast::Model
     instance_variables.map{ |name| "#{name}"[1 .. -1].to_sym }
   end
   
-  def self._parse value
+  def self.parse value
+    rfc2822 = "(#{Time::RFC2822_DAY_NAME.join('|')}, )? \d{1,2} #{Time::RFC2822_MONTH_NAME.join('|')} \d{4,4} \d{2,2}:\d{2,2}:\d{2,2} [+-]\d{4,4}"
+    ansi    = "#{Time::RFC2822_DAY_NAME.join('|')} #{Time::RFC2822_MONTH_NAME.join('|')} +\d{1,2} \d{2,2}:\d{2,2}:\d{2,2} [A-Z]{3,3} \d{4,4}"
     if value.instance_of? String
       case value
       when /^[+-]?\d+$/
@@ -37,8 +39,8 @@ class Howkast::Model
         value.to_f
       when /^(true|false)$/i
         value =~ /^true$/i ? true : false
-      when /^[a-z]{3,3}, \d{1,2} [a-z]{3,3} \d{4,4} \d{2,2}:\d{2,2}:\d{2,2} ([utgmesdcmpz]{1,3}|[+-]?\d{2,4})$/i
-        Time.parse(value)
+      when /^#{rfc2822}|#{ansi}$/
+        Time.parse(value) rescue value
       else
         value
       end

@@ -12,9 +12,9 @@ module Howkast
       
       base.base_uri HOWCAST_BASE_URI
       base.format   :xml
-      base.cache    :store    => 'file', 
-                    :timeout  => 600, 
-                    :location => '/tmp/httparty'
+      base.cache    :store    => Configuration.instance.cache_store,
+                    :timeout  => Configuration.instance.cache_timeout,
+                    :location => Configuration.instance.cache_location
                     
       base.extend ClassMethods
     end
@@ -32,6 +32,10 @@ module Howkast
     end
     
     module ClassMethods
+      def configuration
+        Configuration.instance
+      end
+
       def services
         @services
       end
