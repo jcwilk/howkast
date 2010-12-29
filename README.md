@@ -1,5 +1,7 @@
 This gem implements Ruby bindings for the [Howcast](http://howcast.com) API.
 
+From Howcast's [About Us](http://info.howcast.com/about) page:
+
 > Howcast empowers people with engaging, useful how-to information wherever, 
 > whenever they need to know how. 
 > 
