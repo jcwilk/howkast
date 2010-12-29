@@ -182,6 +182,8 @@ And of course examine each attribute as needed:
     video.category_hierarchy   # => Array of Howkast::Model::Category
     video.title                # => "How To Drive a Stick Shift" 
     video.related_videos       # => Array of Howkast::Model::Video
+    video.markers              # => Array of Howkast::Model::Marker
+    video.markers.first.type   # => Step
 
 Errors
 ------
