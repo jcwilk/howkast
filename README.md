@@ -223,7 +223,7 @@ for details on the types of errors that may be encountered.
 
 Gotchas
 -------
-At the moment, this gem is intended for `Ruby 1.9.x` only.
+At the moment, this gem is intended for `Ruby 1.9.x` use only.
 
 Download
 --------
