@@ -1,12 +1,12 @@
 This gem implements Ruby bindings for the [Howcast](http://howcast.com) API.
 
-- Howcast empowers people with engaging, useful how-to information wherever, 
-- whenever they need to know how. 
-
-- Known for high-quality content, Howcast streams tens of millions of videos 
-- every month across its multi-platform distribution network. Approaching two 
-- million downloads across iPhone, iPad, Android, and BlackBerry phones, Howcast 
-- is the #1 mobile app for instructional content -- wherever you are.
+> Howcast empowers people with engaging, useful how-to information wherever, 
+> whenever they need to know how. 
+> 
+> Known for high-quality content, Howcast streams tens of millions of videos 
+> every month across its multi-platform distribution network. Approaching two 
+> million downloads across iPhone, iPad, Android, and BlackBerry phones, Howcast 
+> is the #1 mobile app for instructional content -- wherever you are.
 
 Install
 -------
