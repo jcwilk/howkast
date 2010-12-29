@@ -14,7 +14,32 @@ Install
 -------
 
     gem install howkast
+
+Configure
+---------
+Most of the service requests require an API key. You can either set this when
+you create an instance of `Howkast::API`:
+
+    howcast = Howkast::API.new :api_key => 'YOUR-API-KEY'
+    howcast.categories
+
+Or create a configuration that file and set it by invoking the `Howkast::configure`
+method:
+
+    # create the configuration file
+    cat > ~/.howkast <<EOF
+    :api_key: YOUR-API-KEY
+    EOF
     
+    # now use it
+    require 'rubygems'
+    require 'yaml'
+    require 'howkast'
+    
+    Howkast::configure YAML.load File.read('~/.howkast')
+    howcast = Howkast::API.new
+    howcast.categories
+
 Quickstart
 ----------
 
