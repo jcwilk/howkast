@@ -221,6 +221,10 @@ most likely benign.
 Read the **HTTP Status Codes and Errors** section of the [Howcast API Documentation](http://groups.google.com/group/howcast-developers/web/api-documentation)
 for details on the types of errors that may be encountered.
 
+Gotchas
+-------
+At the moment, this gem is intended for `Ruby 1.9.x` only.
+
 Download
 --------
 You can download this project in either
