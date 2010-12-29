@@ -119,9 +119,22 @@ for details.
 Models
 ------
 The return value of a service request is an instance of `Howkast::Model` - the
-actual type returned depends on the service invoked:
+actual type returned depends on the service invoked. 
 
+The rule to determine the type of the response is:
 
+1. The module equivalent of the name of the service (eg: `video` returns `Howkast::Model::Video`)
+2. If the service name is in plural form, then an `Array` of the expected
+   model is returned.
+
+Errors
+------
+If a service request fails then a `Howkast::Error::RequestError` error type is
+raised.
+
+Read the **HTTP Status Codes and Errors** section of the [Howcast API Documentation](http://groups.google.com/group/howcast-developers/web/api-documentation)
+for the types of errors that may encounter.
+    
 
 Download
 --------
