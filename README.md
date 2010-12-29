@@ -148,18 +148,43 @@ method of the returned model:
 
 And of course examine each attribute as needed:
 
-    video.category_hierarchy   # => ["Cars & Transportation", "Car Safety", "Defensive Driving"]
+    video.category_hierarchy   # => Array of Howkast::Model::Category
     video.title                # => "How To Drive a Stick Shift" 
     video.related_videos       # => Array of Howkast::Model::Video
 
 Errors
 ------
 If a service request fails then a `Howkast::Error::RequestError` error type is
-raised.
+raised. The actual type raised depends on the error.
+
+The following shows several service calls, any one of which may raise an 
+error, along with possible ways to deal with the error:
+
+    howcast = Howkast::API.new
+    begin
+      howcast.user :id => "kreektrebano", :resource => :videos
+      howcast.user :id => "jurisgalang",  :resource => :favorite
+      howcast.videos :sort   => :most_recent, 
+                     :filter => :all, 
+                     :page   => 99999999
+      howcast.categories
+    rescue Howkast::Error::UserNotFound
+      # ignore
+    rescue Howkast::Error::HTTP404
+      # ignore but log, this is raised if the resource requested is not found;
+      # eg: specifying a :resource that is not supported, or the :page requested
+      # does not exist
+    rescue Howkast::Error::InvalidAPIKey
+      # the service call requires registration and a valid API key to work
+    rescue Howkast::Error::HTTP500
+      # ignore but log and file a bug at support+api@howcast.com 
+    end
+
+Of the above `Howkast::Error::UserNotFound` and `Howkast::Error::HTTP404` are 
+most likely benign.
 
 Read the **HTTP Status Codes and Errors** section of the [Howcast API Documentation](http://groups.google.com/group/howcast-developers/web/api-documentation)
-for the types of errors that may encounter.
-    
+for details on the types of errors that may be encountered.
 
 Download
 --------
