@@ -15,7 +15,10 @@ Jeweler::Tasks.new do |gem|
   gem.name = "howkast"
   gem.homepage = "http://github.com/jurisgalang/howkast"
   gem.summary = %Q{Ruby bindings for the [Howcast](http://howcast.com) API}
-  gem.description = %Q{This gem implements Ruby bindings for the [Howcast](http://howcast.com) API}
+  gem.description = %Q{
+    This gem implements Ruby bindings for the [Howcast](http://howcast.com) API
+    Howcast empowers people with engaging, useful how-to information wherever, whenever they need to know how.
+  }
   gem.email = "jurisgalang@gmail.com"
   gem.authors = ["Juris Galang"]
   gem.license = ["MIT", "GPL"]

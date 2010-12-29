@@ -9,8 +9,11 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Juris Galang"]
-  s.date = %q{2010-12-27}
-  s.description = %q{This gem implements Ruby bindings for the [Howcast](http://howcast.com) API}
+  s.date = %q{2010-12-29}
+  s.description = %q{
+    This gem implements Ruby bindings for the [Howcast](http://howcast.com) API
+    Howcast empowers people with engaging, useful how-to information wherever, whenever they need to know how.
+  }
   s.email = %q{jurisgalang@gmail.com}
   s.extra_rdoc_files = [
     "README.md"
@@ -29,6 +32,7 @@ Gem::Specification.new do |s|
     "features/howkast.feature",
     "features/step_definitions/howkast_steps.rb",
     "features/support/env.rb",
+    "howkast.gemspec",
     "lib/howkast.rb",
     "lib/howkast/api.rb",
     "lib/howkast/base.rb",
@@ -43,9 +47,10 @@ Gem::Specification.new do |s|
     "lib/howkast/processors/search.rb",
     "lib/howkast/processors/users.rb",
     "lib/howkast/processors/videos.rb",
+    "sample/quickstart.rb",
+    "spec/howkast/api_service_spec.rb",
     "spec/howkast/api_spec.rb",
     "spec/howkast/model_spec.rb",
-    "spec/howkast/processors/base_spec.rb",
     "spec/howkast/processors/categories_spec.rb",
     "spec/howkast/processors/playlists_spec.rb",
     "spec/howkast/processors/search_spec.rb",
@@ -55,14 +60,14 @@ Gem::Specification.new do |s|
     "spec/spec_helper.rb"
   ]
   s.homepage = %q{http://github.com/jurisgalang/howkast}
-  s.licenses = ["MIT"]
+  s.licenses = [["MIT", "GPL"]]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.7}
   s.summary = %q{Ruby bindings for the [Howcast](http://howcast.com) API}
   s.test_files = [
+    "spec/howkast/api_service_spec.rb",
     "spec/howkast/api_spec.rb",
     "spec/howkast/model_spec.rb",
-    "spec/howkast/processors/base_spec.rb",
     "spec/howkast/processors/categories_spec.rb",
     "spec/howkast/processors/playlists_spec.rb",
     "spec/howkast/processors/search_spec.rb",
