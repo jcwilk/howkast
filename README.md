@@ -123,9 +123,20 @@ actual type returned depends on the service invoked.
 
 The rule to determine the type of the response is:
 
-1. The module equivalent of the name of the service (eg: `video` returns `Howkast::Model::Video`)
+1. The name of the service in singular form dictates the name of the model 
+   (eg: `video` returns `Howkast::Model::Video`)
 2. If the service name is in plural form, then an `Array` of the expected
    model is returned.
+   
+The `Howkast::Model` instance returned will have the appropriate attributes
+as described in the [Howcast API Documentation](http://groups.google.com/group/howcast-developers/web/api-documentation)
+
+You can examine the list of attributes by invoking the `#instance_attributes`
+method of the returned model:
+
+    video = howcast.video 6570
+    puts video.instance_attributes.inspect
+    
 
 Errors
 ------
