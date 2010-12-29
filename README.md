@@ -83,7 +83,11 @@ the [Howcast API Documentation](http://groups.google.com/group/howcast-developer
 The current implementation is that each service expects a `Hash` that names 
 the parameters required to fulfill the request. The acceptable parameters
 (with a minor adjustments to make the parameter names consistent) closely
-match the documented service signatures; some examples:
+match the documented service signatures.
+
+Here are some examples to illustrate the service calls. Notice also that the 
+`format` parameter is not required, while the `api_key` needs to be set via
+the configuration or when the `Howkast` object is created:
 
     # get video
     GET http://www.howcast.com/videos/<video_id>.<format>?api_key=<api_key>
@@ -103,8 +107,20 @@ match the documented service signatures; some examples:
     # service method call
     howcast.search :query => 'jujitsu'
     
+    # list top level categories
+    GET http://www.howcast.com/categories.<format>?api_key=<api_key>    
+
+    # service method call
+    howcast.categories
+
 Read the [Howcast API Documentation](http://groups.google.com/group/howcast-developers/web/api-documentation)
 for details.
+
+Models
+------
+The return value of a service request is an instance of `Howkast::Model` - the
+actual type returned depends on the service invoked:
+
 
 
 Download
