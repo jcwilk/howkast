@@ -90,8 +90,8 @@ Quickstart
 
 Services
 --------
-To get identify what services are supported, you can invoke the `services`
-class method from the `Howkast::API` class:
+To identify what services are supported, you can invoke the `services` class 
+method from the `Howkast::API` class:
 
     Howkast::API.services  # => [:video, :videos, :search, :user, :playlist, :category, :categories]
   
@@ -107,29 +107,27 @@ Here are some examples to illustrate the service calls. Notice also that the
 `format` parameter is not required, while the `api_key` needs to be set via
 the configuration or when the `Howkast` object is created:
 
-    # get video
-    GET http://www.howcast.com/videos/<video_id>.<format>?api_key=<api_key>
-    
-    # service method call
+### Get Video
+
+    # GET http://www.howcast.com/videos/<video_id>.<format>?api_key=<api_key>
     howcast.video :id => 6570
     
-    # list videos
-    GET http://www.howcast.com/videos/<sort>/<filter>/<category>.<format>?api_key=<api_key>
-    
-    # service method call
+### List Videos
+
+    # GET http://www.howcast.com/videos/<sort>/<filter>/<category>.<format>?api_key=<api_key>
     howcast.videos :sort => :top_rated, :filter => :howcast_studios, :page => 5
 
-    # search videos
-    GET http://www.howcast.com/search.<format>?q=<query>&view=video&api_key=<api_key> 
-  
-    # service method call
+### Search Videos
+
+    # GET http://www.howcast.com/search.<format>?q=<query>&view=video&api_key=<api_key> 
     howcast.search :query => 'jujitsu'
     
-    # list top level categories
-    GET http://www.howcast.com/categories.<format>?api_key=<api_key>    
-
-    # service method call
+### List Top-Level Categories
+    
+    # GET http://www.howcast.com/categories.<format>?api_key=<api_key>    
     howcast.categories
+
+You get the idea.
 
 Read the [Howcast API Documentation](http://groups.google.com/group/howcast-developers/web/api-documentation)
 for details.
