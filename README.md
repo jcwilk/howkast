@@ -128,9 +128,9 @@ the parameters required to fulfill the request. The acceptable parameters
 (with a minor adjustments to make the parameter names consistent) closely
 match the documented service signatures.
 
-Here are some examples to illustrate the service calls. Notice also that the 
-`format` parameter is not required, while the `api_key` needs to be set via
-the configuration or when the `Howkast` object is created:
+Here are some examples to illustrate the service calls. Notice that the `format` 
+parameter does not need to be specified and that the `api_key` only needs to 
+be set at configuration or when the `Howkast::API` object is created:
 
 ### Get Video
 
@@ -152,7 +152,9 @@ the configuration or when the `Howkast` object is created:
     # GET http://www.howcast.com/categories.<format>?api_key=<api_key>    
     howcast.categories
 
-And so on. Read the [Howcast API Documentation](http://groups.google.com/group/howcast-developers/web/api-documentation)
+Anyway, you get the idea. 
+
+Read the [Howcast API Documentation](http://groups.google.com/group/howcast-developers/web/api-documentation)
 for details.
 
 Models
