@@ -1,26 +1,34 @@
 This gem implements Ruby bindings for the [Howcast](http://howcast.com) API.
 
+Installation
+------------
+
+    gem install howkast
+    
 Quickstart Guide
 ----------------
 
-    # install
-    gem install howkast
-    
-    # usage (see also sample/quickstart.rb)
-    require 'howkast'
+    require 'rubygems'
+    require 'yaml'
+    begin
+      require 'howkast'
+    rescue LoadError
+      $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
+      require 'howkast'
+    end
 
     # configure
-    Howkast::configure :api_key => 'YOUR-HOWCAST-API-KEY'
-    
+    Howkast::configure YAML.load File.read('.howkast')
+
     # create instance
     howcast = Howkast::API.new
-    
+
     # alternative instantiation
     # howcast = Howkast::API.new :api_key => 'YOUR-HOWCAST-API-KEY'
-    
+
     # search for jujitsu how-to videos
     search = howcast.search :query => 'jujitsu'
-    
+
     # get detail for the first video listed in the search
     video_id = search.videos.first.id
     video    = howcast.video :id => video_id
@@ -45,10 +53,10 @@ Quickstart Guide
     # list user's playlists
     user = howcast.user :id => username, :resource => :playlists
     puts user.title
-    user.videos.each do |video|
+    user.playlists.each do |video|
       puts "- #{video.id}\t#{video.title}"
     end
-    
+
     # list available categories
     categories = howcast.categories
     categories.each do |category|

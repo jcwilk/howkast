@@ -1,5 +1,6 @@
 require 'rubygems'
 
+require 'time'
 require 'singleton'
 require 'httparty'
 require 'named-parameters'

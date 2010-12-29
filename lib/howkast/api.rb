@@ -26,9 +26,9 @@ module Howkast
 
     service :categories
        
-    recognizes :key, :api_key
+    recognizes :api_key
     def initialize opts = { }
-      key = (opts[:api_key] || opts[:key])
+      key = opts[:api_key]
       configuration.api_key = key if key
     end
   end

@@ -20,11 +20,30 @@ class Howkast::Model
       else
         value
       end
-      instance_variable_set :"@#{field}", value 
+      instance_variable_set :"@#{field}", self.class._parse(value)
     end
   end
   
   def instance_attributes
     instance_variables.map{ |name| "#{name}"[1 .. -1].to_sym }
+  end
+  
+  def self._parse value
+    if value.instance_of? String
+      case value
+      when /^[+-]?\d+$/
+        value.to_i
+      when /^[+-]?\d+\.\d+/
+        value.to_f
+      when /^(true|false)$/i
+        value =~ /^true$/i ? true : false
+      when /^[a-z]{3,3}, \d{1,2} [a-z]{3,3} \d{4,4} \d{2,2}:\d{2,2}:\d{2,2} ([utgmesdcmpz]{1,3}|[+-]?\d{2,4})$/i
+        Time.parse(value)
+      else
+        value
+      end
+    else
+      value
+    end
   end
 end
