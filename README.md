@@ -127,9 +127,7 @@ the configuration or when the `Howkast` object is created:
     # GET http://www.howcast.com/categories.<format>?api_key=<api_key>    
     howcast.categories
 
-You get the idea.
-
-Read the [Howcast API Documentation](http://groups.google.com/group/howcast-developers/web/api-documentation)
+And so on. Read the [Howcast API Documentation](http://groups.google.com/group/howcast-developers/web/api-documentation)
 for details.
 
 Models
