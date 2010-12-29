@@ -72,6 +72,7 @@ module Howkast::Processor
       def expand key, value
         case key
         when 'category_hierarchy'
+          #Categories.parse_element 'categories' => value['category']
           value['category']
         when 'comments'
           value['count']

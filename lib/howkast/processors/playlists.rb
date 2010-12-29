@@ -40,7 +40,7 @@ module Howkast::Processor
       def expand key, value
         case key
         when 'playlists'
-          Playlist.parse_element 'playlists' => value
+          Playlists.parse_element 'playlists' => value
         when 'videos'
           Videos.parse_element 'videos' => value
         else
