@@ -25,6 +25,6 @@ class Howkast::Model
   end
   
   def instance_attributes
-    instance_variables.map{ |name| "#{name}"[1 .. -1] }
+    instance_variables.map{ |name| "#{name}"[1 .. -1].to_sym }
   end
 end

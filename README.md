@@ -75,7 +75,7 @@ Services
 To get identify what services are supported, you can invoke the `services`
 class method from the `Howkast::API` class:
 
-    Howkast::API.services.inspect
+    Howkast::API.services  # => [:video, :videos, :search, :user, :playlist, :category, :categories]
   
 At the time of this writing, this gem implements all of the services listed in 
 the [Howcast API Documentation](http://groups.google.com/group/howcast-developers/web/api-documentation)
@@ -134,9 +134,15 @@ as described in the [Howcast API Documentation](http://groups.google.com/group/h
 You can examine the list of attributes by invoking the `#instance_attributes`
 method of the returned model:
 
-    video = howcast.video 6570
-    puts video.instance_attributes.inspect
-    
+    video = howcast.video :id => 6570
+    video.class                # => Howkast::Model::Video
+    video.instance_attributes  # => [:id, :category_id, :category_hierarchy, :easy_steps, :badges, :created_at, :filename, :tags, :title, :description, :permalink, :edit_url, :state, :duration, :width, :height, :embed, :rating, :username, :thumbnail_url, :views, :content_rating, :overlay, :ingredients, :markers, :related_videos, :comments]
+
+And of course examine each attribute as needed:
+
+    video.category_hierarchy   # => ["Cars & Transportation", "Car Safety", "Defensive Driving"]
+    video.title                # => "How To Drive a Stick Shift" 
+    video.related_videos       # => Array of Howkast::Model::Video
 
 Errors
 ------
