@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 module Howkast
   class API
     service :video,

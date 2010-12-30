@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 module Howkast
   def self.configure config = { }
     configuration = Configuration.instance

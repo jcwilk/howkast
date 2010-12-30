@@ -1,10 +1,12 @@
+# encoding: utf-8
+
 module Howkast::Processor
   class Base
     class << self
       # The name of the processor dictates the path used to communicate to the
       # API server. override to provide an alternate path.
       def path
-        "#{self}".split('::').last.downcase unless "#{self}" =~ /::Base$/
+        "#{self}".split('::').last.downcase unless "#{self}" =~ /::Base$/u
       end
       
       # Override to provide a value for field when field is nil.

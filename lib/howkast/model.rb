@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class Howkast::Model
   def self.synthesize name, data
     classname = name.modulize

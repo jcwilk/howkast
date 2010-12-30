@@ -1,3 +1,4 @@
+# encoding: utf-8
 #
 # See: https://gist.github.com/209605
 #
