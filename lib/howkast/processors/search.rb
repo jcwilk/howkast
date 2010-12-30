@@ -12,8 +12,9 @@ module Howkast::Processor
         options[:q] = options.delete(:query)
         # HACK: The Howcast API service responds with HTTP500 error if the 
         # :q parameter on search is an empty string - so we plug it with
-        # something and hope for the best :-)
-        options[:q] = '*' if options[:q].empty?
+        # something that *might not* exist and hopefully it will return an 
+        # empty list :-)
+        options[:q] = '6c6d1613339399efd0bc74fe12b14dd3' if options[:q].empty?
       end
       
       def parse_element data

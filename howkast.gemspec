@@ -47,6 +47,7 @@ Gem::Specification.new do |s|
     "lib/howkast/processors/search.rb",
     "lib/howkast/processors/users.rb",
     "lib/howkast/processors/videos.rb",
+    "sample/adhoc.rb",
     "sample/quickstart.rb",
     "spec/howkast/api_service_spec.rb",
     "spec/howkast/api_spec.rb",
