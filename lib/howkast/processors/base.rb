@@ -27,7 +27,9 @@ module Howkast::Processor
       # Process an entry (identified by key) in data and return an Array of 
       # model. It assumes that data[key] represents a list of like data.
       def parse_list key, data, model = nil, &block
-        Array((data || { })[key]).map do |data|
+        list = (data || { })[key]
+        list = [list] if list.instance_of? Hash
+        list.map do |data|
           name  = (model || key)
           klass = Howkast::Model.synthesize(name, data)
           klass.new self, data, &block

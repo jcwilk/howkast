@@ -8,15 +8,17 @@ module Howkast
   
   module Base
     HOWCAST_BASE_URI = 'www.howcast.com'
+    extend ActiveSupport::Memoizable
+    
     def self.included base
       base.send     :include, HTTParty
-      base.send     :include, HTTParty::Icebox
+      #base.send     :include, HTTParty::Icebox
       
       base.base_uri HOWCAST_BASE_URI
       base.format   :xml
-      base.cache    :store    => Configuration.instance.cache_store,
-                    :timeout  => Configuration.instance.cache_timeout,
-                    :location => Configuration.instance.cache_location
+      #base.cache    :store    => Configuration.instance.cache_store,
+      #              :timeout  => Configuration.instance.cache_timeout,
+      #              :location => Configuration.instance.cache_location
                     
       base.extend ClassMethods
     end
@@ -32,6 +34,7 @@ module Howkast
         unless r.code == 200
       r.parsed_response['howcast']
     end
+    memoize :request
     
     module ClassMethods
       def configuration

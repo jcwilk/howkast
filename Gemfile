@@ -1,6 +1,7 @@
 source "http://rubygems.org"
 
 group :production do
+  gem "activesupport", ">= 3.0.3"
   gem "httparty", ">= 0.6.1"
   gem "named-parameters", ">= 0.0.22"
 end

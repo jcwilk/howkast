@@ -4,11 +4,12 @@ require 'rubygems'
 
 require 'time'
 require 'singleton'
+require 'active_support/memoizable'
 require 'httparty'
 require 'named-parameters'
 
 require 'howkast/ext/string'
-require 'howkast/ext/icebox'
+#require 'howkast/ext/icebox'
 
 require 'howkast/configuration'
 require 'howkast/errors'

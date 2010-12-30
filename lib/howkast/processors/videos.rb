@@ -73,7 +73,6 @@ module Howkast::Processor
       def expand key, value
         case key
         when 'category_hierarchy'
-          #value['category']
           value['category'] = case value['category']
           when Array, String
             Array(value['category']).map{ |category| { 'name' => category } }
