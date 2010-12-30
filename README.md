@@ -226,9 +226,9 @@ Gotchas
 At the moment, this gem is intended for `Ruby 1.9.x` use only.
 
 Currently, Howcast responds with an HTTP500 error when the `:q` parameter 
-value is empty the `#search` service plugs this parameter with an asterisk as
-placeholder - this however will return a random list of videos.
-
+value is empty the `#search` service plugs this parameter with something that
+*might not* exist and hopefully it returns an appropriate search result (ie: 
+an empty list)
 
 Download
 --------
