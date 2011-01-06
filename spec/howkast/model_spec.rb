@@ -3,19 +3,19 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 describe "Howkast::Model" do
   before :each do
     @foo      = 'Foo'
-    @foo_data = { x: 1, y: 2, z: 3 }
+    @foo_data = { :x => 1, :y => 2, :z => 3 }
     
     @bar      = 'Bar'
-    @bar_data = { x: 1, y: 2, z: 3, foo: @foo_data }
+    @bar_data = { :x => 1, :y => 2, :z => 3, :foo => @foo_data }
 
     @zoo      = 'Zoo'
-    @zoo_data = { x: 1, y: 2, z: 3, foo: @foo_data, bar: @bar_data }
+    @zoo_data = { :x => 1, :y => 2, :z => 3, :foo => @foo_data, :bar => @bar_data }
   end
   
   it "should be able to create model types" do
     klass = Howkast::Model.synthesize(@foo, @foo_data)
     klass.should eql Howkast::Model::Foo
-    klass.public_instance_methods.should include :instance_attributes
+    klass.public_instance_methods.map{ |method| method.to_sym }.should include :instance_attributes
   end
 
   it "should be able to create model instances" do

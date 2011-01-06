@@ -8,7 +8,7 @@ describe "Howkast::Processor::Videos" do
   end
 
   it "should raise an error if given a non-valid video ID" do
-    ->{ @howcast.video :id => '9999999999999999999999999' }.should \
+    lambda{ @howcast.video :id => '9999999999999999999999999' }.should \
     raise_error Howkast::Error::RequestError
   end
 

@@ -8,7 +8,7 @@ describe "Howkast::Processor::Categories" do
   end
   
   it "should raise an error if given a non-valid category ID" do
-    ->{ @howcast.category :id => '9999999999999999999999999' }.should \
+    lambda{ @howcast.category :id => '9999999999999999999999999' }.should \
       raise_error Howkast::Error::RequestError
   end
 

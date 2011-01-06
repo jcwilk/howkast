@@ -223,12 +223,12 @@ for details on the types of errors that may be encountered.
 
 Gotchas
 -------
-At the moment, this gem is intended for `Ruby 1.9.x` use only.
-
 Currently, Howcast responds with an HTTP500 error when the `:q` parameter 
-value is empty the `#search` service plugs this parameter with something that
-*might not* exist and hopefully it returns an appropriate search result (ie: 
-an empty list)
+value is empty. To get around this the `#search` service plugs this parameter 
+with something that *might not* exist and hopefully it returns an appropriate 
+search result (ie: an empty list)
+
+It does not support `Ruby 1.8.6`
 
 Download
 --------

@@ -55,7 +55,7 @@ module Howkast::Processor
       end
       
       def parse_element data
-        expander = ->(key, value){ expand key, value }
+        expander = lambda{ |key, value| expand key, value }
         if data.has_key? 'video'
           data  = data['video']
           klass = Howkast::Model.synthesize('Video', data)

@@ -18,7 +18,7 @@ describe "Howkast::API" do
 
   it "should be able to override configuration" do
     Howkast::configure :api_key => API_KEY1
-    howcast = Howkast::API.new api_key: API_KEY2
+    howcast = Howkast::API.new :api_key => API_KEY2
     howcast.configuration.api_key.should eql API_KEY2
   end
 end

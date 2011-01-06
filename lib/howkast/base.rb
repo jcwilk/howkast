@@ -46,7 +46,7 @@ module Howkast
       end
       
       def service name, spec = { }
-        arguments_guard = ->(argcount) do
+        arguments_guard = lambda do |argcount|
           maxarity = spec[:maxarity] || 1
           raise ArgumentError, "wrong number of arguments (#{argcount} for #{maxarity})" \
             unless maxarity == argcount
@@ -58,7 +58,7 @@ module Howkast
         define_method name do |*args, &block|
           arguments_guard[args.count]
           
-          self.class.default_params api_key: configuration.api_key
+          self.class.default_params :api_key => configuration.api_key
           procname  = (spec[:processor] || name).to_s.modulize
           processor = Processor.const_defined?(procname) ?
                         Processor.const_get(procname) :
@@ -74,7 +74,7 @@ module Howkast
           path << "/#{args.join('/')}" unless args.empty?
           path << '.xml'
           
-          data = request(path, query: query)
+          data = request(path, :query => query)
           processor.parse_element data
         end
       end

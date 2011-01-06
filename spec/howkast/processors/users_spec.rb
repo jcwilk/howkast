@@ -9,12 +9,12 @@ describe "Howkast::Processor::Users" do
   end
 
   it "should raise an error if given a non-valid user ID" do
-    ->{ @howcast.user :id => 'kreektrebano', :resource => :videos }.should \
+    lambda{ @howcast.user :id => 'kreektrebano', :resource => :videos }.should \
       raise_error Howkast::Error::RequestError
   end
 
   it "should raise an error if given an unrecognized resource" do
-    ->{ @howcast.user :id => 'jurisgalang', :resource => :jurisgalang }.should \
+    lambda{ @howcast.user :id => 'jurisgalang', :resource => :jurisgalang }.should \
       raise_error Howkast::Error::RequestError
   end
 
@@ -28,7 +28,7 @@ describe "Howkast::Processor::Users" do
       user = @howcast.user :id => 'howcast', :resource => resource
       user.should be_an_instance_of Howkast::Model::User
       
-      examine = ->(resource, attribute, model) do
+      examine =lambda do |resource, attribute, model|
         list = user.send(attribute)
         list.should be_an_instance_of Array
         list.should_not be_empty

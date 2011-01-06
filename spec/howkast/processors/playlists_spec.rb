@@ -8,7 +8,7 @@ describe "Howkast::Processor::Playlists" do
   end
   
   it "should raise an error if given a non-valid playlist ID" do
-    ->{ @howcast.playlist :id => '9999999999999999999999999' }.should \
+    lambda{ @howcast.playlist :id => '9999999999999999999999999' }.should \
       raise_error Howkast::Error::RequestError
   end
 
